@@ -1,6 +1,38 @@
 # cloud-proxy
 cloud-proxy creates multiple cloud instances and then starts local socks proxies using SSH. After exiting, the droplets are deleted.
 
+### MY CHANGES
+```
+nano templates.go
+
+After line 10:
+
+	terraform {
+	  required_providers {
+	    digitalocean = {
+	      source = "digitalocean/digitalocean"
+	    }
+	  }
+	}
+
+Line 21 (name =) and line 24 (image =):
+
+	image = "ubuntu-20-04-x64"
+	size = "s-1vcpu-1gb"
+```
+```
+nano main.go
+	Insert after line 222 (ip := strings.TrimSpace(splitOutput[1])):
+		ip2 := strings.Trim(ip, "\"")
+
+	Line 228 change 'ip' to 'ip2'
+```
+> go mod init cloud-proxy     
+> go build    
+> terraform init  
+
+
+
 ### Warning
 This tool will deploy as many droplets as you desire, and will make a best effort to delete them after use. However, you are ultimately going to pay the bill for these droplets, and it is up to you, and you alone to ensure they actually get deleted.
 
