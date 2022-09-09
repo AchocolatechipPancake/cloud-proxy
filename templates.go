@@ -8,12 +8,20 @@ provider "digitalocean" {
   token = "${var.do_token}"
 }
 
+terraform {
+	required_providers {
+		digitalocean = {
+			source = "digitalocean/digitalocean"
+		}
+	}
+}
+
 {{range .}}
 resource "digitalocean_droplet" "{{.Name}}" {
-  image  = "ubuntu-14-04-x64"
+  image  = "ubuntu-20-04-x64"
   name   = "{{.Name}}"
   region = "{{.Region}}"
-  size   = "512mb"
+  size   = "s-1vcpu-1gb"
   ssh_keys = [
     "${var.do_ssh_fingerprint}"
   ]
