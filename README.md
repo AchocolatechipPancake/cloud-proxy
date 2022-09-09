@@ -28,6 +28,7 @@ nano main.go
 	Line 228 change 'ip' to 'ip2'
 ```
 #### Compile
+> go get golang.org/x/crypto/sha3
 > go mod init cloud-proxy     
 > go build    
 > terraform init  
