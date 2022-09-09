@@ -43,7 +43,7 @@ nano main.go
 > go get golang.org/x/crypto/sha3   
 > go mod init cloud-proxy     
 > go build    
-> ./cloud-proxy -do -count 10 -start-tcp 45555
+> sudo ./cloud-proxy -do -count 10 -start-tcp 45555
 > terraform init  
 ```
 
