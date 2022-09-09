@@ -1,0 +1,5 @@
+do_token = "YOUR_DO_TOKEN"
+do_ssh_fingerprint = "YOUR:SSH:FINGERPRINT"
+aws_access_key = "YOUR_ACCESS_KEY"
+aws_secret_key = "YOUR_SECRET_KEY"
+aws_key_name = "SSH_KEY_NAME"
