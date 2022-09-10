@@ -1,7 +1,7 @@
 # cloud-proxy
 cloud-proxy creates multiple cloud instances and then starts local socks proxies using SSH. After exiting, the droplets are deleted.
 
-### MY CHANGES
+### CHANGES
 ```
 nano templates.go
 
