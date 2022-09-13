@@ -140,7 +140,7 @@ func main() {
 		computerUsers[name] = "root"
 	}
 
-	printConfigs(*startPort, printProxyChains, printSocksd)
+	printConfigs(*startPort, printProxyChains, printSocksd, printProxyNG)
 
 	tunnelProcesses := createTunnels(computerUsers)
 
@@ -171,6 +171,16 @@ func printProxyChains(port int) {
 		fmt.Printf("socks5 127.0.0.1 %d\n", port)
 		port++
 	}
+}
+
+func printProxyNG(port int) {
+	log.Println("proxy-ng config")
+	fmt.Printf("\n{\n    \"Proxies\": [")
+	for x := 0; x < *count; x++ {
+		fmt.Printf("        socks5 127.0.0.1 %d\n", port)
+		port++
+	}
+	fmt.Printf("    ]\n}\n\n")
 }
 
 func printSocksd(port int) {
