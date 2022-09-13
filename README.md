@@ -3,7 +3,7 @@ cloud-proxy creates multiple cloud instances and then starts local socks proxies
 
 ### CHANGES
 ```
-nano templates.go
+templates.go:
 
 After line 10:
 
@@ -21,11 +21,22 @@ Line 21 (name =) and line 24 (image =):
 	size = "s-1vcpu-1gb"
 ```
 ```
-nano main.go
+main.go:
 	Insert after line 222 (ip := strings.TrimSpace(splitOutput[1])):
 		ip2 := strings.Trim(ip, "\"")
 
 	Line 228 change 'ip' to 'ip2'
+	
+Added:
+	func printProxyNG(port int) {
+		log.Println("proxy-ng config")
+		fmt.Printf("\n{\n    \"Proxies\": [\n")
+		for x := 0; x < *count; x++ {
+			fmt.Printf("        socks5 127.0.0.1 %d\n", port)
+			port++
+		}
+		fmt.Printf("    ]\n}\n\n")
+	}
 ```
 #### Install Terraform
 ```
