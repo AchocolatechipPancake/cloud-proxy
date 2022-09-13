@@ -175,7 +175,7 @@ func printProxyChains(port int) {
 
 func printProxyNG(port int) {
 	log.Println("proxy-ng config")
-	fmt.Printf("\n{\n    \"Proxies\": [")
+	fmt.Printf("\n{\n    \"Proxies\": [\n")
 	for x := 0; x < *count; x++ {
 		fmt.Printf("        socks5 127.0.0.1 %d\n", port)
 		port++
